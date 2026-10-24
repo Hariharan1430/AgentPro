@@ -6,7 +6,10 @@ async function bootstrap() {
   console.log(process.env.AGENTPRO_IDENTITY_SECRET);
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://agent-pro-front-end.vercel.app",
+  ],
   credentials: true,
 });
 
