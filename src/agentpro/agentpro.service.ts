@@ -32,4 +32,30 @@ export class AgentproService {
       signature,
     },
   };
+}
+
+async getStudentProfile(studentId: string) {
+  const studentDoc = await db.collection('students').doc(studentId).get();
+
+  if (!studentDoc.exists) {
+    return {
+      success: false,
+      message: 'Student not found',
+    };
+  }
+
+  const student = studentDoc.data();
+
+  return {
+    success: true,
+    data: {
+      studentId: student?.studentId,
+      name: student?.name,
+      email: student?.email,
+      department: student?.department,
+      cgpa: student?.cgpa,
+      result: student?.result,
+    },
+  };
 }}
+

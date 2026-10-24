@@ -9,4 +9,9 @@ export class AgentproController {
   async getVisitor(@Query('studentId') studentId: string) {
     return this.agentproService.getVisitor(studentId);
   }
+
+  @Get('profile')
+  async getStudentProfile(@Query('studentId') studentId: string) {
+    return this.agentproService.getStudentProfile(studentId);
+  }
 }
