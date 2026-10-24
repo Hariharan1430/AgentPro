@@ -6,12 +6,12 @@ export class AgentproController {
   constructor(private readonly agentproService: AgentproService) {}
 
   @Get('visitor')
-  async getVisitor(@Query('studentId') studentId: string) {
+  async getVisitor(@Query('studentid') studentId: string) {
     return this.agentproService.getVisitor(studentId);
   }
 
   @Get('profile')
-  async getStudentProfile(@Query('studentId') studentId: string) {
+  async getStudentProfile(@Query('studentid') studentId: string) {
     return this.agentproService.getStudentProfile(studentId);
   }
 }
